@@ -432,12 +432,12 @@ namespace BlockLimiter.Utility
                     
                     if (BlockLimiterConfig.Instance.MaxSmallGrids > 0)
                     {
-                        sb.AppendLine($"Small Grids Limits: {grids.Count(x=>x.GridSizeEnum == MyCubeSize.Small)}/{BlockLimiterConfig.Instance.MaxSmallGrids}");
+                        sb.AppendLine($"Small Grids Limits: {grids.Count(x=>x.GridSizeEnum == MyCubeSize.Small && x.BlocksCount >= BlockLimiterConfig.Instance.MinBlocksCountSize)}/{BlockLimiterConfig.Instance.MaxSmallGrids}");
                     }
                     
                     if (BlockLimiterConfig.Instance.MaxLargeGrids > 0)
                     {
-                        sb.AppendLine($"Large Grid Limits: {grids.Count(x=>x.GridSizeEnum == MyCubeSize.Large)}/{BlockLimiterConfig.Instance.MaxLargeGrids}");
+                        sb.AppendLine($"Large Grid Limits: {grids.Count(x=>x.GridSizeEnum == MyCubeSize.Large && x.BlocksCount >= BlockLimiterConfig.Instance.MinBlocksCountSize)}/{BlockLimiterConfig.Instance.MaxLargeGrids}");
                     }
                 }
             }

@@ -70,6 +70,7 @@ namespace BlockLimiter.Settings
         private int _maxBlockSizeProjections = 0;
         private int _maxSmallGrids = 0;
         private int _maxLargeGrids = 0;
+        private int _minBlocksCountSize = 0;
         private BlockingType _blockingType = BlockingType.None;
 
 
@@ -154,7 +155,19 @@ namespace BlockLimiter.Settings
             }
         }
 
-        [Display(Order = 3, Name = "Max Grid Allowed Blocking Type", GroupName = "General Grid Limit",
+        [Display(Order = 3, Name = "Min Blocks To Count", GroupName = "General Grid Limit",
+            Description = "The minimum blocks a grid must have, when counting")]
+        public int MinBlocksCountSize
+        {
+            get => _minBlocksCountSize;
+            set
+            {
+                _minBlocksCountSize = value;
+                Changed();
+            }
+        }
+
+        [Display(Order = 4, Name = "Max Grid Allowed Blocking Type", GroupName = "General Grid Limit",
             Description = "Warn = annoyance message, Soft = Block placement, Hard = Block placement and delete excess")]
         public BlockingType BlockType
         {
